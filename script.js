@@ -4,7 +4,7 @@
 All tasks in one file (script.js)
 =======================================
 */
-// test
+
 /*  
 =======================================
 TODO1: Welcome Board
@@ -19,7 +19,11 @@ inside the <p> element with id="t1-msg".
 💡 Hint:
 document.getElementById("t1-msg").innerHTML = "Hello, World!";
 */
- 
+
+document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("t1-msg").innerHTML = "Hello, World!";
+});
+
 
 /*  
 =======================================
@@ -41,6 +45,10 @@ button.addEventListener("click", function () {
 });
 */
  
+const el = document.getElementById("t2-btn");
+el.addEventListener("click", function() {
+    document.getElementById("t2-status").innerHTML = "You clicked the button!";
+});
 
 /*  
 =======================================
