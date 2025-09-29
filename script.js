@@ -88,7 +88,7 @@ quoteBtn.addEventListener("click", function() {
     fetch("https://dummyjson.com/quotes/random")
         .then(response => response.json())
         .then(data => {
-            quoteText.innerHTML = `${data.content}`;
+            quoteText.innerHTML = `${data.quote}`;
             quoteAuthor.innerHTML = `- ${data.author}`;
         })
         .catch(error => {
@@ -124,3 +124,27 @@ data.main.temp      → temperature (°C)
 data.main.humidity  → humidity (%)
 data.wind.speed     → wind speed (m/s)
 */
+
+const weatherBtn = document.getElementById("t4-loadWx");
+const tempEl = document.getElementById("t4-temp");
+const humEl = document.getElementById("t4-hum");
+const windEl = document.getElementById("t4-wind");
+
+
+const API_KEY = `86f6e697a19e083e31b262b3cadef8d6`
+
+weatherBtn.addEventListener("click", function() {
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=Dammam&appid=${API_KEY}&units=metric`)
+        .then(response => response.json())
+        .then(data => {
+            tempEl.innerHTML = `Temperature: ${data.main.temp} °C`;
+            humEl.innerHTML = `Humidity: ${data.main.humidity} %`;
+            windEl.innerHTML = `Wind Speed: ${data.wind.speed} m/s`;
+        })
+        .catch(error => {
+            tempEl.innerHTML = "Failed to load weather data.";
+            humEl.innerHTML = "";
+            windEl.innerHTML = "";
+            console.error("Error fetching weather data:", error);
+        });
+});
