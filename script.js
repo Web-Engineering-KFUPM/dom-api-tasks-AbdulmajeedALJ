@@ -45,10 +45,13 @@ button.addEventListener("click", function () {
 });
 */
  
-const el = document.getElementById("t2-btn");
-el.addEventListener("click", function() {
-    document.getElementById("t2-status").innerHTML = "You clicked the button!";
+const btn = document.getElementById("t2-btn");
+const status = document.getElementById("t2-status");
+
+btn.addEventListener("click", function() {
+    status.innerHTML = "You clicked the button!";
 });
+
 
 /*  
 =======================================
